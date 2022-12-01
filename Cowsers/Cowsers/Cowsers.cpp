@@ -30,7 +30,7 @@ void color(int color)
 	else {}
 }
 
-// Function for printing all the menu options 
+// Print all the menu options 
 void printMenuOptions(string arr[], int n, int selectedOption)
 {
 	for (int i = 0; i < n; i++)
@@ -75,24 +75,24 @@ bool isGuessingInRange(int guessing, int min, int max)
 	return true;
 }
 
-// Separate numbers to digits
-void separateNumber(int difficulty,
+// Separate numbers to numberOfDigits
+void separateNumber(int numberOfDigits,
 	int randomNumber[],
 	int guessedNumber[],
 	int number,
 	int guessing)
 {
-	for (int i = 0; i < difficulty; i++)
+	for (int i = 0; i < numberOfDigits; i++)
 	{
-		switch (difficulty)
+		switch (numberOfDigits)
 		{
 		case 3:
-			/// Initializing digits of generated number to an array
+			/// Initializing numberOfDigits of generated number to an array
 			randomNumber[0] = number / 100;
 			randomNumber[1] = number / 10 % 10;
 			randomNumber[2] = number % 10;
 
-			/// Initializing digits of guessed number to an array
+			/// Initializing numberOfDigits of guessed number to an array
 			guessedNumber[0] = guessing / 100;
 			guessedNumber[1] = guessing / 10 % 10;
 			guessedNumber[2] = guessing % 10;
@@ -100,13 +100,13 @@ void separateNumber(int difficulty,
 			break;
 
 		case 4:
-			/// Initializing digits of generated number to an array
+			/// Initializing numberOfDigits of generated number to an array
 			randomNumber[0] = number / 1000;
 			randomNumber[1] = number / 100 % 10;
 			randomNumber[2] = number / 10 % 10;
 			randomNumber[3] = number % 10;
 
-			/// Initializing digits of guessed number to an array
+			/// Initializing numberOfDigits of guessed number to an array
 			guessedNumber[0] = guessing / 1000;
 			guessedNumber[1] = guessing / 100 % 10;
 			guessedNumber[2] = guessing / 10 % 10;
@@ -115,14 +115,14 @@ void separateNumber(int difficulty,
 			break;
 
 		case 5:
-			/// Initializing digits of generated number to an array
+			/// Initializing numberOfDigits of generated number to an array
 			randomNumber[0] = number / 10000;
 			randomNumber[1] = number / 1000 % 10;
 			randomNumber[2] = number / 100 % 10;
 			randomNumber[3] = number / 10 % 10;
 			randomNumber[4] = number % 10;
 
-			/// Initializing digits of guessed number to an array
+			/// Initializing numberOfDigits of guessed number to an array
 			guessedNumber[0] = guessing / 10000;
 			guessedNumber[1] = guessing / 1000 % 10;
 			guessedNumber[2] = guessing / 100 % 10;
@@ -137,15 +137,68 @@ void separateNumber(int difficulty,
 	}
 }
 
-void bullsAndCows(int min, int max, int difficulty)
+// Check if there are equal digits in a number
+bool checkForEqualDigits(int num, int numberOfDigits)
+{
+	int arr[5] = { 0 };
+	switch (numberOfDigits)
+	{
+	case 3:
+		arr[0] = num / 100;
+		arr[1] = num / 10 % 10;
+		arr[2] = num % 10;
+
+		break;
+
+	case 4:
+		arr[0] = num / 1000;
+		arr[1] = num / 100 % 10;
+		arr[2] = num / 10 % 10;
+		arr[3] = num % 10;
+
+		break;
+
+	case 5:
+		arr[0] = num / 10000;
+		arr[1] = num / 1000 % 10;
+		arr[2] = num / 100 % 10;
+		arr[3] = num / 10 % 10;
+		arr[4] = num % 10;
+
+		break;
+
+	default:
+		break;
+	}
+
+	for (int i = 0; i < numberOfDigits; i++)
+	{
+		for (int j = i + 1; j < numberOfDigits; j++)
+		{
+			if (arr[i] == arr[j])
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+void bullsAndCows(int min, int max, int numberOfDigits)
 {
 	int number = 0;
 	int guessing = 0;
-	int randomNumber[5], guessedNumber[5];
+	int randomNumber[5] = { 0 }, guessedNumber[5] = { 0 };
 	int cows = 0, bulls = 0;
 
 	// Generate random number in range
 	number = getRandomNumber(min, max);
+	while ((checkForEqualDigits(number, numberOfDigits)))
+	{
+		number = 0;
+		number = getRandomNumber(min, max);
+	}
 
 	cout << number << endl;
 
@@ -161,15 +214,25 @@ void bullsAndCows(int min, int max, int difficulty)
 		cin >> guessing; // If not input again
 	}
 
+	//Check if there are equal digits in a number
+	while ((checkForEqualDigits(guessing, numberOfDigits)))
+	{
+		cout << "Your number has two or more equal digits" << endl;
+		cout << "Please enter a valid number " << endl;
+
+		guessing = 0;
+		cin >> guessing; // If not input again
+	}
+
 	while (number != guessing)
 	{
-		for (int i = 0; i < difficulty; i++)
+		for (int i = 0; i < numberOfDigits; i++)
 		{
-			// Separate generated number and guessed number to digits
-			separateNumber(difficulty, randomNumber, guessedNumber, number, guessing);
+			// Separate generated number and guessed number to numberOfDigits
+			separateNumber(numberOfDigits, randomNumber, guessedNumber, number, guessing);
 
-			// Check digits
-			for (int j = 0; j < difficulty; j++)
+			// Check numberOfDigits
+			for (int j = 0; j < numberOfDigits; j++)
 			{
 				// Check for bulls
 				if (randomNumber[i] == guessedNumber[j] && i == j)
@@ -202,6 +265,16 @@ void bullsAndCows(int min, int max, int difficulty)
 		{
 			cout << "Your number is out of range" << endl;
 			cout << "Please enter a number between " << min << " & " << max << endl;
+
+			guessing = 0;
+			cin >> guessing; // If not input again
+		}
+
+		//Check if there are equal digits in a number
+		while ((checkForEqualDigits(guessing, numberOfDigits)))
+		{
+			cout << "Your number has two or more equal digits" << endl;
+			cout << "Please enter a valid number " << endl;
 
 			guessing = 0;
 			cin >> guessing; // If not input again
@@ -335,7 +408,7 @@ int main()
 {
 	// Array of strings with all the main menu options
 	string mainMenuOptions[4] = { "Start", "Rules", "Settings", "Exit" };
-	// Array of strings with all the game difficulty menu options
+	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[3] = { "Easy", "Normal", "Hard" };
 
 	mainMenu(mainMenuOptions, 4, gameDifficultyMenuOptions, 3);
