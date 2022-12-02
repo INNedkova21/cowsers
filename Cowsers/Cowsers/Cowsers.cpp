@@ -314,6 +314,7 @@ void gameDifficultyMenu(string arr[], int n)
 		{
 			switch (selectedOption)
 			{
+				// Easy mode
 			case 0:
 				system("CLS");
 
@@ -321,14 +322,16 @@ void gameDifficultyMenu(string arr[], int n)
 
 				break;
 
+				// Normal mode
 			case 1:
 				system("CLS");
-				cout << "Second option selected";
+				bullsAndCows(1000, 9999, 4);
 				break;
 
+				// Hard mode
 			case 2:
 				system("CLS");
-				cout << "Third option selected";
+				bullsAndCows(10000, 99999, 5);
 				break;
 
 			default:
