@@ -110,7 +110,7 @@ void separateNumber(int numberOfDigits,
 			guessedNumber[0] = guessing / 1000;
 			guessedNumber[1] = guessing / 100 % 10;
 			guessedNumber[2] = guessing / 10 % 10;
-			guessedNumber[2] = guessing % 10;
+			guessedNumber[3] = guessing % 10;
 
 			break;
 
