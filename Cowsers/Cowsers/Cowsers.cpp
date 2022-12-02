@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cstdlib> // rand()
+#include <cstdlib> // srand()
 #include <windows.h> // color(), outputPossition()
 #include <stdlib.h> // color(), outputPossition()
 #include <conio.h> // _getch()
@@ -30,23 +30,23 @@ void color(int color)
 	else {}
 }
 
-// Print all the menu options 
-void printMenuOptions(string arr[], int n, int selectedOption)
+// Print all menu options 
+void printMenuOptions(string arrWithOptions[], int numOfOptions, int selectedOption)
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < numOfOptions; i++)
 	{
 		// Print selected option
 		if (i == selectedOption)
 		{
 			outputPosition(2, i + 1);
-			cout << "-> " << arr[i];
+			cout << "-> " << arrWithOptions[i];
 		}
 
 		// Print not selected option
 		else
 		{
 			outputPosition(2, i + 1);
-			cout << "   " << arr[i];
+			cout << "   " << arrWithOptions[i];
 		}
 	}
 }
@@ -75,7 +75,7 @@ bool isGuessingInRange(int guessing, int min, int max)
 	return true;
 }
 
-// Separate numbers to numberOfDigits
+// Separate numbers to digits
 void separateNumber(int numberOfDigits,
 	int randomNumber[],
 	int guessedNumber[],
@@ -87,12 +87,12 @@ void separateNumber(int numberOfDigits,
 		switch (numberOfDigits)
 		{
 		case 3:
-			/// Initializing numberOfDigits of generated number to an array
+			// Initializing digits of generated number to an array
 			randomNumber[0] = number / 100;
 			randomNumber[1] = number / 10 % 10;
 			randomNumber[2] = number % 10;
 
-			/// Initializing numberOfDigits of guessed number to an array
+			// Initializing digits of guessed number to an array
 			guessedNumber[0] = guessing / 100;
 			guessedNumber[1] = guessing / 10 % 10;
 			guessedNumber[2] = guessing % 10;
@@ -100,13 +100,13 @@ void separateNumber(int numberOfDigits,
 			break;
 
 		case 4:
-			/// Initializing numberOfDigits of generated number to an array
+			// Initializing digits of generated number to an array
 			randomNumber[0] = number / 1000;
 			randomNumber[1] = number / 100 % 10;
 			randomNumber[2] = number / 10 % 10;
 			randomNumber[3] = number % 10;
 
-			/// Initializing numberOfDigits of guessed number to an array
+			// Initializing digits of guessed number to an array
 			guessedNumber[0] = guessing / 1000;
 			guessedNumber[1] = guessing / 100 % 10;
 			guessedNumber[2] = guessing / 10 % 10;
@@ -115,14 +115,14 @@ void separateNumber(int numberOfDigits,
 			break;
 
 		case 5:
-			/// Initializing numberOfDigits of generated number to an array
+			// Initializing digits of generated number to an array
 			randomNumber[0] = number / 10000;
 			randomNumber[1] = number / 1000 % 10;
 			randomNumber[2] = number / 100 % 10;
 			randomNumber[3] = number / 10 % 10;
 			randomNumber[4] = number % 10;
 
-			/// Initializing numberOfDigits of guessed number to an array
+			// Initializing digits of guessed number to an array
 			guessedNumber[0] = guessing / 10000;
 			guessedNumber[1] = guessing / 1000 % 10;
 			guessedNumber[2] = guessing / 100 % 10;
@@ -141,9 +141,11 @@ void separateNumber(int numberOfDigits,
 bool checkForEqualDigits(int num, int numberOfDigits)
 {
 	int arr[5] = { 0 };
+
 	switch (numberOfDigits)
 	{
 	case 3:
+		// Initializing digits of number to an array
 		arr[0] = num / 100;
 		arr[1] = num / 10 % 10;
 		arr[2] = num % 10;
@@ -151,6 +153,7 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 		break;
 
 	case 4:
+		// Initializing digits of number to an array
 		arr[0] = num / 1000;
 		arr[1] = num / 100 % 10;
 		arr[2] = num / 10 % 10;
@@ -159,6 +162,7 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 		break;
 
 	case 5:
+		// Initializing digits of number to an array
 		arr[0] = num / 10000;
 		arr[1] = num / 1000 % 10;
 		arr[2] = num / 100 % 10;
@@ -171,6 +175,7 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 		break;
 	}
 
+	// Check for equal numbers
 	for (int i = 0; i < numberOfDigits; i++)
 	{
 		for (int j = i + 1; j < numberOfDigits; j++)
@@ -185,6 +190,7 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 	return false;
 }
 
+// Game logic
 void bullsAndCows(int min, int max, int numberOfDigits)
 {
 	int number = 0;
@@ -194,14 +200,17 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 
 	// Generate random number in range
 	number = getRandomNumber(min, max);
+
+	// Check if there are equal numbers
 	while ((checkForEqualDigits(number, numberOfDigits)))
 	{
 		number = 0;
-		number = getRandomNumber(min, max);
+		number = getRandomNumber(min, max); // New generation
 	}
 
 	cout << number << endl;
 
+	// Guessed number input
 	cin >> guessing;
 
 	// Check if guessed number is in range
@@ -211,17 +220,17 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		cout << "Please enter a number between " << min << " & " << max << endl;
 
 		guessing = 0;
-		cin >> guessing; // If not input again
+		cin >> guessing; // If not - input again
 	}
 
-	//Check if there are equal digits in a number
+	// Check if there are equal digits in a number
 	while ((checkForEqualDigits(guessing, numberOfDigits)))
 	{
 		cout << "Your number has two or more equal digits" << endl;
 		cout << "Please enter a valid number " << endl;
 
 		guessing = 0;
-		cin >> guessing; // If not input again
+		cin >> guessing; // If yes - input again
 	}
 
 	while (number != guessing)
@@ -247,6 +256,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 				}
 			}
 		}
+
 		// Get guessed cows and bulls
 		cout << "Cows - " << cows << endl;
 		cout << "Bulls - " << bulls << endl;
@@ -267,7 +277,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			cout << "Please enter a number between " << min << " & " << max << endl;
 
 			guessing = 0;
-			cin >> guessing; // If not input again
+			cin >> guessing; // If not - input again
 		}
 
 		//Check if there are equal digits in a number
@@ -277,10 +287,11 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			cout << "Please enter a valid number " << endl;
 
 			guessing = 0;
-			cin >> guessing; // If not input again
+			cin >> guessing; // If yes - input again
 		}
 	}
 
+	// Success message
 	cout << "You've got it correct. Congrats!" << endl;
 }
 
@@ -341,7 +352,7 @@ void gameDifficultyMenu(string arr[], int n)
 	}
 }
 
-// Function for moving arround the menu using keyboard
+// Moving arround the menu using keyboard
 void mainMenu(string mainMenuOptions[],
 	int mainMenuOptionsSize,
 	string gameDifficultyMenuOptions[],
