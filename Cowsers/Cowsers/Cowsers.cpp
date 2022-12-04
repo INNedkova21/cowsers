@@ -293,6 +293,16 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 
 	// Success message
 	cout << "You've got it correct. Congrats!" << endl;
+	cout << "Press Enter to go back!";
+
+	char pressedKey = ' ';
+	pressedKey = _getch();
+
+	while (pressedKey != '\r')
+	{
+		pressedKey = ' ';
+		pressedKey = _getch();
+	}
 }
 
 void gameDifficultyMenu(string arr[], int n)
@@ -300,10 +310,10 @@ void gameDifficultyMenu(string arr[], int n)
 	int selectedOption = 0;
 	char pressedKey = ' ';
 
-	printMenuOptions(arr, n, selectedOption);
-
 	while (true)
 	{
+		system("CLS");
+		printMenuOptions(arr, n, selectedOption);
 		pressedKey = _getch();
 
 		// Moving up through the menu
@@ -328,9 +338,7 @@ void gameDifficultyMenu(string arr[], int n)
 				// Easy mode
 			case 0:
 				system("CLS");
-
 				bullsAndCows(100, 999, 3);
-
 				break;
 
 				// Normal mode
@@ -344,6 +352,9 @@ void gameDifficultyMenu(string arr[], int n)
 				system("CLS");
 				bullsAndCows(10000, 99999, 5);
 				break;
+
+			case 3:
+				system("CLS");
 
 			default:
 				break;
@@ -423,7 +434,7 @@ int main()
 	// Array of strings with all the main menu options
 	string mainMenuOptions[4] = { "Start", "Rules", "Settings", "Exit" };
 	// Array of strings with all the game numberOfDigits menu options
-	string gameDifficultyMenuOptions[3] = { "Easy", "Normal", "Hard" };
+	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
-	mainMenu(mainMenuOptions, 4, gameDifficultyMenuOptions, 3);
+	mainMenu(mainMenuOptions, 4, gameDifficultyMenuOptions, 4);
 }
