@@ -9,8 +9,8 @@
  We made a program which can help you to improve your logical skills.
 
 ## <img align="center" src="https://static.thenounproject.com/png/3347000-200.png" width="30"> Demo of our project
-<img align="center" src="/images/demo.JPG" width="1000"> 
-<img align="center" src="/images/demo.JPG" width="1000"> 
+<img align="center" src="/images/demo.jpg" width="1000"> 
+<img align="center" src="/images/demo.jpg" width="1000"> 
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/126/126472.png" width="30"> Installing
  To install our project on your machine you just need to clone it. This can be done by :
@@ -43,4 +43,3 @@
 - <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20">  Git Hub
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/640px-Git-logo.svg.png" width="20">  Git
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/640px-ISO_C%2B%2B_Logo.svg.png" width="20">  C++
-
