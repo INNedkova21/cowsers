@@ -1,7 +1,7 @@
 <img align="center" src="/images/logo.png" width=100%> 
 
 ---
-<h4 align="center">This our bools and cows game.</h4>
+<h4 align="center">This our Singleplayer version of the game "Bulls and Cows".</h4>
 
 ---
 
