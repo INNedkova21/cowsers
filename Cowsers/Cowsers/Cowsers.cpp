@@ -238,7 +238,11 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		for (int i = 0; i < numberOfDigits; i++)
 		{
 			// Separate generated number and guessed number to numberOfDigits
-			separateNumber(numberOfDigits, randomNumber, guessedNumber, number, guessing);
+			separateNumber(numberOfDigits,
+				randomNumber,
+				guessedNumber,
+				number,
+				guessing);
 
 			// Check numberOfDigits
 			for (int j = 0; j < numberOfDigits; j++)
@@ -388,8 +392,7 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 }
 
 // Moving arround the menu using keyboard
-void mainMenu(string mainMenuOptions[],
-	string gameDifficultyMenuOptions[])
+void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 {
 	int selectedOption = 0;
 	char pressedKey = ' ';
@@ -453,6 +456,7 @@ int main()
 {
 	// Array of strings with all the main menu options
 	string mainMenuOptions[4] = { "Start", "Rules", "Settings", "Exit" };
+
 	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
