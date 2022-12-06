@@ -1,7 +1,7 @@
-<img align="center" src="/images/logo.png" width=100%> 
+<div align="center"><img src="/images/logo.png" width=35%> </div>
 
 ---
-<h4 align="center">This our bools and cows game.</h4>
+<h4 align="center">This our Singleplayer version of the game "Bulls and Cows".</h4>
 
 ---
 
@@ -9,8 +9,8 @@
  We made a program which can help you to improve your logical skills.
 
 ## <img align="center" src="https://static.thenounproject.com/png/3347000-200.png" width="30"> Demo of our project
-<img align="center" src="/images/demo.jpg" width="1000"> 
-<img align="center" src="/images/demo.jpg" width="1000"> 
+<div align="center"><img src="/images/demo.jpg" width="1000"> </div>
+<div align="center"><img src="/images/demo.jpg" width="1000"> </div>
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/126/126472.png" width="30"> Installing
  To install our project on your machine you just need to clone it. This can be done by :
