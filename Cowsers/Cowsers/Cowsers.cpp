@@ -75,6 +75,17 @@ bool isGuessingInRange(int guessing, int min, int max)
 	return true;
 }
 
+// Check if in guessed input there are letters or symbols
+bool checkForLettersAndSymbols(int guessing)
+{
+	if ((int)guessing < 48 || (int)guessing > 57)
+	{
+		return true;
+	}
+
+	return false;
+}
+
 // Separate numbers to digits
 void separateNumber(int numberOfDigits,
 	int randomNumber[],
@@ -233,6 +244,17 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		cin >> guessing; // If yes - input again
 	}
 
+	// Check if there are symbols or letters in a number
+	while ((checkForLettersAndSymbols(guessing)))
+	{
+		cout << "Your number contains symbols or letters" << endl;
+		cout << "Please enter a valid number " << endl;
+
+		guessing = 0;
+		cin >> guessing; // If yes - input again
+	}
+
+
 	while (number != guessing)
 	{
 		for (int i = 0; i < numberOfDigits; i++)
@@ -288,6 +310,16 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		while ((checkForEqualDigits(guessing, numberOfDigits)))
 		{
 			cout << "Your number has two or more equal digits" << endl;
+			cout << "Please enter a valid number " << endl;
+
+			guessing = 0;
+			cin >> guessing; // If yes - input again
+		}
+
+		// Check if there are symbols or letters in a number
+		while ((checkForLettersAndSymbols(guessing)))
+		{
+			cout << "Your number contains symbols or letters" << endl;
 			cout << "Please enter a valid number " << endl;
 
 			guessing = 0;
