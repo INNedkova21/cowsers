@@ -391,6 +391,27 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 	}
 }
 
+// Print out rules option
+void printRules(string menuOptions[], int selectedOption)
+{
+	system("ClS");
+	cout << "Rules here" << endl;
+
+	cout << "Press Enter to go back!";
+
+	char pressedKey = ' ';
+	pressedKey = _getch();
+
+	while (pressedKey != '\r')
+	{
+		pressedKey = ' ';
+		pressedKey = _getch();
+	}
+
+	system("CLS");
+	printMenuOptions(menuOptions, selectedOption);
+}
+
 // Moving arround the menu using keyboard
 void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 {
@@ -427,12 +448,11 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 			case 0:
 				system("CLS");
 				gameDifficultyMenu(gameDifficultyMenuOptions, mainMenuOptions);
-				selectedOption = 0;
 				break;
 
 			case 1:
 				system("CLS");
-				cout << "Second option selected";
+				printRules(mainMenuOptions, selectedOption);
 				break;
 
 			case 2:
