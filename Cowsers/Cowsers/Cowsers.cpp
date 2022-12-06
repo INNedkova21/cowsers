@@ -31,9 +31,9 @@ void color(int color)
 }
 
 // Print all menu options 
-void printMenuOptions(string arrWithOptions[], int numOfOptions, int selectedOption)
+void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
-	for (int i = 0; i < numOfOptions; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		// Print selected option
 		if (i == selectedOption)
@@ -305,15 +305,16 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	}
 }
 
-void gameDifficultyMenu(string arr[], int n)
+void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptions[])
 {
 	int selectedOption = 0;
 	char pressedKey = ' ';
+	bool exitStatement = true;
 
-	while (true)
+	while (exitStatement)
 	{
 		system("CLS");
-		printMenuOptions(arr, n, selectedOption);
+		printMenuOptions(gameDifficultyMenuOptions, selectedOption);
 		pressedKey = _getch();
 
 		// Moving up through the menu
@@ -323,12 +324,12 @@ void gameDifficultyMenu(string arr[], int n)
 		}
 
 		// Moving down through the menu
-		if (selectedOption != n - 1 && pressedKey == (char)80)
+		if (selectedOption != 3 && pressedKey == (char)80)
 		{
 			selectedOption++;
 		}
 
-		printMenuOptions(arr, n, selectedOption);
+		printMenuOptions(gameDifficultyMenuOptions, selectedOption);
 
 		// Choosing menu option
 		if (pressedKey == '\r')
@@ -339,22 +340,45 @@ void gameDifficultyMenu(string arr[], int n)
 			case 0:
 				system("CLS");
 				bullsAndCows(100, 999, 3);
+
+				// Print main menu after game
+				system("CLS");
+				selectedOption = 0;
+				printMenuOptions(mainMenuOptions, selectedOption);
+				exitStatement = false;
 				break;
 
 				// Normal mode
 			case 1:
 				system("CLS");
 				bullsAndCows(1000, 9999, 4);
+
+				// Print main menu after game
+				system("CLS");
+				selectedOption = 0;
+				printMenuOptions(mainMenuOptions, selectedOption);
+				exitStatement = false;
 				break;
 
 				// Hard mode
 			case 2:
 				system("CLS");
 				bullsAndCows(10000, 99999, 5);
+
+				// Print main menu after game
+				system("CLS");
+				selectedOption = 0;
+				printMenuOptions(mainMenuOptions, selectedOption);
+				exitStatement = false;
 				break;
 
+				// Go back
 			case 3:
 				system("CLS");
+				selectedOption = 0;
+				printMenuOptions(mainMenuOptions, selectedOption);
+				exitStatement = false;
+				break;
 
 			default:
 				break;
@@ -365,15 +389,12 @@ void gameDifficultyMenu(string arr[], int n)
 
 // Moving arround the menu using keyboard
 void mainMenu(string mainMenuOptions[],
-	int mainMenuOptionsSize,
-	string gameDifficultyMenuOptions[],
-	int gameDifficultyMenuOptionsSize)
+	string gameDifficultyMenuOptions[])
 {
 	int selectedOption = 0;
 	char pressedKey = ' ';
 
 	printMenuOptions(mainMenuOptions,
-		mainMenuOptionsSize,
 		selectedOption);
 
 	while (true)
@@ -387,13 +408,12 @@ void mainMenu(string mainMenuOptions[],
 		}
 
 		// Moving down through the menu
-		if (selectedOption != mainMenuOptionsSize - 1 && pressedKey == (char)80)
+		if (selectedOption != 3 && pressedKey == (char)80)
 		{
 			selectedOption++;
 		}
 
 		printMenuOptions(mainMenuOptions,
-			mainMenuOptionsSize,
 			selectedOption);
 
 		// Choosing menu option
@@ -403,8 +423,8 @@ void mainMenu(string mainMenuOptions[],
 			{
 			case 0:
 				system("CLS");
-				gameDifficultyMenu(gameDifficultyMenuOptions,
-					gameDifficultyMenuOptionsSize);
+				gameDifficultyMenu(gameDifficultyMenuOptions, mainMenuOptions);
+				selectedOption = 0;
 				break;
 
 			case 1:
@@ -436,5 +456,5 @@ int main()
 	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
-	mainMenu(mainMenuOptions, 4, gameDifficultyMenuOptions, 4);
+	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
 }
