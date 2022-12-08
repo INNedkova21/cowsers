@@ -30,6 +30,48 @@ void color(int color)
 	else {}
 }
 
+// Prints game base frame
+void printGameFrame()
+{
+	// Frame top
+	outputPosition(1, 1);
+	cout << char(218); // Top left corner
+	for (int i = 0; i < 50; i++)
+	{
+		cout << char(196); // Horizontal line
+	}
+	cout << char(191) << endl; // Top right corner
+
+	// Frame base
+	for (int i = 2; i < 30; i++)
+	{
+		outputPosition(1, i);
+		cout << char(179) << "                                                  " << char(179) << endl; // Vertical lines
+	}
+
+	// Frame bottom
+	outputPosition(1, 30);
+	cout << char(192); // Bottom left corner
+	for (int i = 0; i < 50; i++)
+	{
+		cout << char(196); // Horizontal line
+	}
+	cout << char(217) << endl; // Bottom right corner
+
+	// Frame top bar
+	outputPosition(1, 3);
+	cout << char(195); // Left frame connecting piece
+	for (int i = 0; i < 50; i++)
+	{
+		cout << char(196); // Horizontal line
+	}
+	cout << char(180); // Right frame connecting piece
+
+	// Frame bar symbols
+	outputPosition(48, 2);
+	cout << char(196) << " x"; // Horizontal line and X
+}
+
 // Print all menu options 
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
@@ -76,15 +118,15 @@ bool isGuessingInRange(int guessing, int min, int max)
 }
 
 // Check if in guessed input there are letters or symbols
-bool checkForLettersAndSymbols(int guessing)
-{
-	if ((int)guessing < 48 || (int)guessing > 57)
-	{
-		return true;
-	}
-
-	return false;
-}
+//bool checkForLettersAndSymbols(int guessing)
+//{
+//	if (char(guessing) < char(48) || char(guessing) > char(57))
+//	{
+//		return true;
+//	}
+//
+//	return false;
+//}
 
 // Separate numbers to digits
 void separateNumber(int numberOfDigits,
@@ -245,14 +287,14 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	}
 
 	// Check if there are symbols or letters in a number
-	while ((checkForLettersAndSymbols(guessing)))
-	{
-		cout << "Your number contains symbols or letters" << endl;
-		cout << "Please enter a valid number " << endl;
+	//while ((checkForLettersAndSymbols(guessing)))
+	//{
+	//	cout << "Your number contains symbols or letters" << endl;
+	//	cout << "Please enter a valid number " << endl;
 
-		guessing = 0;
-		cin >> guessing; // If yes - input again
-	}
+	//	guessing = 0;
+	//	cin >> guessing; // If yes - input again
+	//}
 
 
 	while (number != guessing)
@@ -317,14 +359,14 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		}
 
 		// Check if there are symbols or letters in a number
-		while ((checkForLettersAndSymbols(guessing)))
-		{
-			cout << "Your number contains symbols or letters" << endl;
-			cout << "Please enter a valid number " << endl;
+		//while ((checkForLettersAndSymbols(guessing)))
+		//{
+		//	cout << "Your number contains symbols or letters" << endl;
+		//	cout << "Please enter a valid number " << endl;
 
-			guessing = 0;
-			cin >> guessing; // If yes - input again
-		}
+		//	guessing = 0;
+		//	cin >> guessing; // If yes - input again
+		//}
 	}
 
 	// Success message
