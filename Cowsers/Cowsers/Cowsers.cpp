@@ -88,10 +88,15 @@ void printTeamNameLogo()
 // Print cow drawing
 void printCow()
 {
+	outputPosition(3, 21);
 	cout << "           __n__n__" << endl;
+	outputPosition(3, 22);
 	cout << "    .------`-\\00/-'" << endl;
+	outputPosition(3, 23);
 	cout << "   /  ##  ## (oo)" << endl;
+	outputPosition(3, 24);
 	cout << "  / \\##  __  ./" << endl;
+	outputPosition(3, 25);
 	cout << "     \\ /   \\ /" << endl;
 
 }
@@ -110,7 +115,7 @@ void printRevertedCow()
 // Print bull drawing
 void printBull()
 {
-	cout << "           __^__^__" << endl;
+	cout << "           __(__)__" << endl;
 	cout << "    .------`-\\00/-'" << endl;
 	cout << "   /         (oo)" << endl;
 	cout << "  / \\    __  ./" << endl;
@@ -121,10 +126,15 @@ void printBull()
 // Print reverted bull drawing
 void printRevertedBull()
 {
-	cout << " __^__^__           " << endl;
+	outputPosition(28, 24);
+	cout << " __(__)__           " << endl;
+	outputPosition(28, 25);
 	cout << " '-/00\\-`------.    " << endl;
+	outputPosition(28, 26);
 	cout << "   (oo)         \\   " << endl;
+	outputPosition(28, 27);
 	cout << "     \\.  __    / \\  " << endl;
+	outputPosition(28, 28);
 	cout << "      \\ /   \\ /     " << endl;
 
 }
@@ -620,6 +630,8 @@ int main()
 
 	printGameFrame();
 	printTeamNameLogo();
+	printCow();
+	printRevertedBull();
 	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
 	return 0;
 }
