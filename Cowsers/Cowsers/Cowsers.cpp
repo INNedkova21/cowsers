@@ -88,16 +88,16 @@ void printTeamNameLogo()
 // Print cow drawing
 void printCow()
 {
-	outputPosition(3, 21);
-	cout << "           __n__n__" << endl;
-	outputPosition(3, 22);
-	cout << "    .------`-\\00/-'" << endl;
-	outputPosition(3, 23);
-	cout << "   /  ##  ## (oo)" << endl;
-	outputPosition(3, 24);
-	cout << "  / \\##  __  ./" << endl;
-	outputPosition(3, 25);
-	cout << "     \\ /   \\ /" << endl;
+	outputPosition(14, 21);
+	cout << "__n__n__" << endl;
+	outputPosition(7, 22);
+	cout << ".------`-\\00/-'" << endl;
+	outputPosition(6, 23);
+	cout << "/  ##  ## (oo)" << endl;
+	outputPosition(5, 24);
+	cout << "/ \\##  __  ./" << endl;
+	outputPosition(8, 25);
+	cout << "\\ /   \\ /" << endl;
 
 }
 
@@ -127,16 +127,33 @@ void printBull()
 void printRevertedBull()
 {
 	outputPosition(28, 24);
-	cout << " __(__)__           " << endl;
+	cout << "__(__)__" << endl;
 	outputPosition(28, 25);
-	cout << " '-/00\\-`------.    " << endl;
-	outputPosition(28, 26);
-	cout << "   (oo)         \\   " << endl;
-	outputPosition(28, 27);
-	cout << "     \\.  __    / \\  " << endl;
-	outputPosition(28, 28);
-	cout << "      \\ /   \\ /     " << endl;
+	cout << "'-/00\\-`------." << endl;
+	outputPosition(30, 26);
+	cout << "(oo)         \\" << endl;
+	outputPosition(32, 27);
+	cout << "\\.  __    / \\" << endl;
+	outputPosition(33, 28);
+	cout << "\\ /   \\ /" << endl;
 
+}
+
+// Print grass drawing
+void printGrass()
+{
+	outputPosition(2, 23);
+	cout << "--^-----^------^^----^^-----^---^^--------^^----^-" << endl;
+	outputPosition(2, 24);
+	cout << "                    ^                     ^     " << endl;
+	outputPosition(2, 25);
+	cout << "                 ^^                     ^     " << endl;
+	outputPosition(2, 27);
+	cout << "   ^         ^        ^^           ^^         ^ " << endl;
+	outputPosition(2, 28);
+	cout << "        ^^           ^            ^    ^      " << endl;
+	outputPosition(2, 29);
+	cout << "  ^            ^             ^^             ^ " << endl;
 }
 
 // Print all menu options 
@@ -630,6 +647,7 @@ int main()
 
 	printGameFrame();
 	printTeamNameLogo();
+	printGrass();
 	printCow();
 	printRevertedBull();
 	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
