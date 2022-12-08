@@ -85,6 +85,50 @@ void printTeamNameLogo()
 	cout << "\\___/\\____/|__/|__/___/___/_/|_/___/  " << endl;
 }
 
+// Print cow drawing
+void printCow()
+{
+	cout << "           __n__n__" << endl;
+	cout << "    .------`-\\00/-'" << endl;
+	cout << "   /  ##  ## (oo)" << endl;
+	cout << "  / \\##  __  ./" << endl;
+	cout << "     \\ /   \\ /" << endl;
+
+}
+
+// Print reverted cow drawing
+void printRevertedCow()
+{
+	cout << " __n__n__           " << endl;
+	cout << " '-/00\\-`------.    " << endl;
+	cout << "   (oo) ##  ##  \\   " << endl;
+	cout << "     \\.  __  ##/ \\  " << endl;
+	cout << "      \\ /   \\ /     " << endl;
+
+}
+
+// Print bull drawing
+void printBull()
+{
+	cout << "           __^__^__" << endl;
+	cout << "    .------`-\\00/-'" << endl;
+	cout << "   /         (oo)" << endl;
+	cout << "  / \\    __  ./" << endl;
+	cout << "     \\ /   \\ /" << endl;
+
+}
+
+// Print reverted bull drawing
+void printRevertedBull()
+{
+	cout << " __^__^__           " << endl;
+	cout << " '-/00\\-`------.    " << endl;
+	cout << "   (oo)         \\   " << endl;
+	cout << "     \\.  __    / \\  " << endl;
+	cout << "      \\ /   \\ /     " << endl;
+
+}
+
 // Print all menu options 
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
