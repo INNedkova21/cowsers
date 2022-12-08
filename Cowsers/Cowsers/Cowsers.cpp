@@ -72,6 +72,19 @@ void printGameFrame()
 	cout << char(196) << " x"; // Horizontal line and X
 }
 
+// Print team name logo
+void printTeamNameLogo()
+{
+	outputPosition(8, 6);
+	cout << "  _________ _      _____________  ____" << endl;
+	outputPosition(8, 7);
+	cout << " / ___/ __ \\ | /| / / __/ __/ _ \\/ __/" << endl;
+	outputPosition(8, 8);
+	cout << "/ /__/ /_/ / |/ |/ /\\ \\/ _// , _/\\ \\  " << endl;
+	outputPosition(8, 9);
+	cout << "\\___/\\____/|__/|__/___/___/_/|_/___/  " << endl;
+}
+
 // Print all menu options 
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
@@ -80,14 +93,14 @@ void printMenuOptions(string arrWithOptions[], int selectedOption)
 		// Print selected option
 		if (i == selectedOption)
 		{
-			outputPosition(2, i + 1);
+			outputPosition(20, i + 13);
 			cout << "-> " << arrWithOptions[i];
 		}
 
 		// Print not selected option
 		else
 		{
-			outputPosition(2, i + 1);
+			outputPosition(20, i + 13);
 			cout << "   " << arrWithOptions[i];
 		}
 	}
@@ -561,6 +574,8 @@ int main()
 	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
+	printGameFrame();
+	printTeamNameLogo();
 	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
 	return 0;
 }
