@@ -398,54 +398,79 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	outputPosition(24, 14);
 	cout << number << endl;
 
-	// Guessed number input
-	outputPosition(24, 15);
-	cin >> guessing;
-
 	// Check if guessed number is in range
-	while (!(isGuessingInRange(guessing, min, max)))
+	while (!(isGuessingInRange(guessing, min, max)) || (checkForEqualDigits(guessing, numberOfDigits)))
 	{
-		printPopup();
-		outputPosition(13, 14);
-		cout << "Your number is out of range";
-		outputPosition(13, 16);
-		cout << "Please enter number between";
-		outputPosition(13, 17);
-		cout << min << " & " << max;
-		outputPosition(29, 18);
-		cout << "Press Enter";
+		// Guessed number input
+		outputPosition(24, 15);
+		cin >> guessing;
 
-		guessing = 0;
-		cin >> guessing; // If not - input again
+		if (!(isGuessingInRange(guessing, min, max)))
+		{
+			printPopup();
+			outputPosition(13, 14);
+			cout << "Your number is out of range";
+			outputPosition(13, 16);
+			cout << "Please enter number between";
+			outputPosition(13, 17);
+			cout << min << " & " << max;
+			outputPosition(29, 18);
+			cout << "Press Enter";
+
+			guessing = 0;
+
+			char pressedKey = ' ';
+			pressedKey = _getch();
+
+			while (pressedKey != '\r')
+			{
+				pressedKey = ' ';
+				pressedKey = _getch();
+			}
+
+			system("CLS");
+			printConsoleDesign();
+
+			outputPosition(15, 13);
+			cout << "Hi " << nickname << ", Enter again!";
+
+			outputPosition(24, 14);
+			cout << number << endl;
+		}
+
+		else if (checkForEqualDigits(guessing, numberOfDigits))
+		{
+			printPopup();
+			outputPosition(13, 14);
+			cout << "Your number has two or more";
+			outputPosition(13, 15);
+			cout << "equal digits";
+			outputPosition(13, 17);
+			cout << "Please enter valid number ";
+			outputPosition(29, 18);
+			cout << "Press Enter";
+
+			guessing = 0;
+
+			char pressedKey = ' ';
+			pressedKey = _getch();
+
+			while (pressedKey != '\r')
+			{
+				pressedKey = ' ';
+				pressedKey = _getch();
+			}
+
+			system("CLS");
+			printConsoleDesign();
+
+			outputPosition(15, 13);
+			cout << "Hi " << nickname << ", Enter again!";
+
+			outputPosition(24, 14);
+			cout << number << endl;
+		}
 	}
-
-	// Check if there are equal digits in a number
-	while ((checkForEqualDigits(guessing, numberOfDigits)))
-	{
-		printPopup();
-		outputPosition(13, 14);
-		cout << "Your number has two or more";
-		outputPosition(13, 15);
-		cout << "equal digits";
-		outputPosition(13, 17);
-		cout << "Please enter valid number ";
-		outputPosition(29, 18);
-		cout << "Press Enter";
-
-		guessing = 0;
-		cin >> guessing; // If yes - input again
-	}
-
-	// Check if there are symbols or letters in a number
-	//while ((checkForLettersAndSymbols(guessing)))
-	//{
-	//	cout << "Your number contains symbols or letters" << endl;
-	//	cout << "Please enter a valid number " << endl;
-
-	//	guessing = 0;
-	//	cin >> guessing; // If yes - input again
-	//}
-
 
 	while (number != guessing)
 	{
@@ -521,16 +546,6 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			guessing = 0;
 			cin >> guessing; // If yes - input again
 		}
-
-		// Check if there are symbols or letters in a number
-		//while ((checkForLettersAndSymbols(guessing)))
-		//{
-		//	cout << "Your number contains symbols or letters" << endl;
-		//	cout << "Please enter a valid number " << endl;
-
-		//	guessing = 0;
-		//	cin >> guessing; // If yes - input again
-		//}
 	}
 
 	// Success message
