@@ -20,16 +20,6 @@ void outputPosition(int x, int y)
 	else {}
 }
 
-// Windows function for chainging text color
-void color(int color)
-{
-	if (SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color))
-	{
-		return;
-	}
-	else {}
-}
-
 // Prints game base frame
 void printGameFrame()
 {
@@ -133,30 +123,8 @@ void printCow()
 
 }
 
-// Print reverted cow drawing
-void printRevertedCow()
-{
-	cout << " __n__n__           " << endl;
-	cout << " '-/00\\-`------.    " << endl;
-	cout << "   (oo) ##  ##  \\   " << endl;
-	cout << "     \\.  __  ##/ \\  " << endl;
-	cout << "      \\ /   \\ /     " << endl;
-
-}
-
 // Print bull drawing
 void printBull()
-{
-	cout << "           __(__)__" << endl;
-	cout << "    .------`-\\00/-'" << endl;
-	cout << "   /         (oo)" << endl;
-	cout << "  / \\    __  ./" << endl;
-	cout << "     \\ /   \\ /" << endl;
-
-}
-
-// Print reverted bull drawing
-void printRevertedBull()
 {
 	outputPosition(28, 24);
 	cout << "__(__)__" << endl;
@@ -195,7 +163,7 @@ void printConsoleDesign()
 	printTeamNameLogo();
 	printGrass();
 	printCow();
-	printRevertedBull();
+	printBull();
 }
 
 // Print all menu options 
@@ -373,7 +341,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 	// Generate random number in range
 	number = getRandomNumber(min, max);
 
-	// Check if there are equal numbers
+	// Check if there are equal digits
 	while ((checkForEqualDigits(number, numberOfDigits)))
 	{
 		number = 0;
@@ -393,6 +361,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 		outputPosition(24, 15);
 		cin >> guessing;
 
+		// Out of range digits warning
 		if (!(isGuessingInRange(guessing, min, max)))
 		{
 			printPopup();
@@ -426,6 +395,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 			cout << number << endl;
 		}
 
+		// Equal digits warning
 		else if (checkForEqualDigits(guessing, numberOfDigits))
 		{
 			printPopup();
@@ -505,6 +475,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 		outputPosition(13, 16);
 		cout << "Please enter number again" << endl;
 
+		// Press enter to go back
 		outputPosition(29, 18);
 		cout << "Press Enter";
 
@@ -535,6 +506,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 			outputPosition(24, 15);
 			cin >> guessing;
 
+			// Out of range digits warning
 			if (!(isGuessingInRange(guessing, min, max)))
 			{
 				printPopup();
@@ -544,6 +516,8 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 				cout << "Please enter number between";
 				outputPosition(13, 16);
 				cout << min << " & " << max;
+
+				// Press enter to go back
 				outputPosition(29, 18);
 				cout << "Press Enter";
 
@@ -568,6 +542,7 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 				cout << number << endl;
 			}
 
+			// Equal digits warning
 			else if (checkForEqualDigits(guessing, numberOfDigits))
 			{
 				printPopup();
@@ -577,6 +552,8 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 				cout << "equal digits";
 				outputPosition(13, 16);
 				cout << "Please enter valid number ";
+
+				// Press enter to go back
 				outputPosition(29, 18);
 				cout << "Press Enter";
 
@@ -609,6 +586,8 @@ void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 	cout << "You've got it correct.";
 	outputPosition(13, 15);
 	cout << "Congrats!";
+
+	// Press enter to go back
 	outputPosition(15, 18);
 	cout << "Press Enter to go back";
 
@@ -723,6 +702,7 @@ void printRules(string menuOptions[], int selectedOption)
 	outputPosition(8, 17);
 	cout << "That's why it's called bulls and cows. ";
 
+	// Press enter to go back
 	outputPosition(25, 20);
 	cout << "Press Enter to go back!";
 
@@ -739,12 +719,13 @@ void printRules(string menuOptions[], int selectedOption)
 	printMenuOptions(menuOptions, selectedOption);
 }
 
-void settings(string nickname, string menuOptions[], string mainMenuOptions[])
+// Settings option
+void settings(string& nickname, string menuOptions[], string mainMenuOptions[])
 {
 	printConsoleDesign();
 
 	outputPosition(22, 12);
-	cout << "Hi " << nickname;
+	cout << "Hi " << nickname << ",";
 	outputPosition(17, 13);
 	cout << "Welcome to settings!";
 
@@ -755,6 +736,7 @@ void settings(string nickname, string menuOptions[], string mainMenuOptions[])
 	char pressedKey = ' ';
 	bool exitStatement = true;
 
+	// Print menu options
 	for (int i = 0; i < 2; i++)
 	{
 		// Print selected option
@@ -788,6 +770,7 @@ void settings(string nickname, string menuOptions[], string mainMenuOptions[])
 			selectedOption++;
 		}
 
+		// Print menu options
 		for (int i = 0; i < 2; i++)
 		{
 			// Print selected option
@@ -810,18 +793,48 @@ void settings(string nickname, string menuOptions[], string mainMenuOptions[])
 		{
 			switch (selectedOption)
 			{
-				// Yes
+				// Change nickname
 			case 0:
 				system("CLS");
+				printConsoleDesign();
 				printPopup();
 
+				outputPosition(17, 14);
+				cout << "Enter your nickname";
+
+				// Nickname input			
+				outputPosition(25, 15);
+				getline(cin, nickname);
+
+				// Press enter to go back
+				outputPosition(29, 18);
+				cout << "Press Enter";
+
+				pressedKey = ' ';
+				pressedKey = _getch();
+
+				while (pressedKey != '\r')
+				{
+					pressedKey = ' ';
+					pressedKey = _getch();
+				}
+
+				system("CLS");
+				printConsoleDesign();
+
+				selectedOption = 2;
+
+				printMenuOptions(mainMenuOptions, 
+					selectedOption);
+				exitStatement = false;
 				break;
 
-				// No - Go back
+				// Don't change nickname - Go back
 			case 1:
 				selectedOption = 2;
 
-				printMenuOptions(mainMenuOptions, selectedOption);
+				printMenuOptions(mainMenuOptions, 
+					selectedOption);
 				exitStatement = false;
 				break;
 
@@ -835,7 +848,6 @@ void settings(string nickname, string menuOptions[], string mainMenuOptions[])
 // Moving arround the menu using keyboard
 void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], string changeNicknameOptions[], string nickname)
 {
-
 	int selectedOption = 0;
 	char pressedKey = ' ';
 	bool exitStatement = true;
@@ -888,6 +900,7 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], stri
 				// Exit
 			case 3:
 				exitStatement = false;
+				system("CLS");
 				cout << "Press any key to exit";
 				break;
 
