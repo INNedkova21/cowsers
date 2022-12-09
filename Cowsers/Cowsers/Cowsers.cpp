@@ -245,17 +245,6 @@ bool isGuessingInRange(int guessing, int min, int max)
 	return true;
 }
 
-// Check if in guessed input there are letters or symbols
-//bool checkForLettersAndSymbols(int guessing)
-//{
-//	if (char(guessing) < char(48) || char(guessing) > char(57))
-//	{
-//		return true;
-//	}
-//
-//	return false;
-//}
-
 // Separate numbers to digits
 void separateNumber(int numberOfDigits,
 	int randomNumber[],
@@ -398,7 +387,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	outputPosition(24, 14);
 	cout << number << endl;
 
-	// Check if guessed number is in range
+	// Check if guessed number is valid
 	while (!(isGuessingInRange(guessing, min, max)) || (checkForEqualDigits(guessing, numberOfDigits)))
 	{
 		// Guessed number input
@@ -500,9 +489,13 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			}
 		}
 
+		printPopup();
+
 		// Get guessed cows and bulls
-		cout << "Cows - " << cows << endl;
-		cout << "Bulls - " << bulls << endl;
+		outputPosition(13, 14);
+		cout << "Cows - " << cows;
+		outputPosition(13, 15);
+		cout << "Bulls - " << bulls;
 
 		// Reset variables for new input
 		cows = 0;
@@ -510,47 +503,117 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		guessing = 0;
 
 		// Input again
+		outputPosition(13, 16);
 		cout << "Please enter number again" << endl;
-		cin >> guessing;
 
-		// Check if guessed number is in range
-		while (!(isGuessingInRange(guessing, min, max)))
+		outputPosition(29, 18);
+		cout << "Press Enter";
+
+		guessing = 0;
+
+		char pressedKey = ' ';
+		pressedKey = _getch();
+
+		while (pressedKey != '\r')
 		{
-			printPopup();
-			outputPosition(13, 14);
-			cout << "Your number is out of range";
-			outputPosition(13, 16);
-			cout << "Please enter number between";
-			outputPosition(13, 17);
-			cout << min << " & " << max;
-			outputPosition(20, 18);
-			cout << "Press Enter";
-
-			guessing = 0;
-			cin >> guessing; // If not - input again
+			pressedKey = ' ';
+			pressedKey = _getch();
 		}
 
-		//Check if there are equal digits in a number
-		while ((checkForEqualDigits(guessing, numberOfDigits)))
-		{
-			printPopup();
-			outputPosition(13, 14);
-			cout << "Your number has two or more";
-			outputPosition(13, 15);
-			cout << "equal digits";
-			outputPosition(13, 17);
-			cout << "Please enter valid number ";
-			outputPosition(20, 18);
-			cout << "Press Enter";
+		system("CLS");
+		printConsoleDesign();
 
-			guessing = 0;
-			cin >> guessing; // If yes - input again
+		outputPosition(15, 13);
+		cout << "Hi " << nickname << ", Enter again!";
+
+		outputPosition(24, 14);
+		cout << number << endl;
+
+		// Check if guessed number is valid
+		while (!(isGuessingInRange(guessing, min, max)) || (checkForEqualDigits(guessing, numberOfDigits)))
+		{
+			// Guessed number input
+			outputPosition(24, 15);
+			cin >> guessing;
+
+			if (!(isGuessingInRange(guessing, min, max)))
+			{
+				printPopup();
+				outputPosition(13, 14);
+				cout << "Your number is out of range";
+				outputPosition(13, 16);
+				cout << "Please enter number between";
+				outputPosition(13, 17);
+				cout << min << " & " << max;
+				outputPosition(29, 18);
+				cout << "Press Enter";
+
+				guessing = 0;
+
+				char pressedKey = ' ';
+				pressedKey = _getch();
+
+				while (pressedKey != '\r')
+				{
+					pressedKey = ' ';
+					pressedKey = _getch();
+				}
+
+				system("CLS");
+				printConsoleDesign();
+
+				outputPosition(15, 13);
+				cout << "Hi " << nickname << ", Enter again!";
+
+				outputPosition(24, 14);
+				cout << number << endl;
+			}
+
+			else if (checkForEqualDigits(guessing, numberOfDigits))
+			{
+				printPopup();
+				outputPosition(13, 14);
+				cout << "Your number has two or more";
+				outputPosition(13, 15);
+				cout << "equal digits";
+				outputPosition(13, 17);
+				cout << "Please enter valid number ";
+				outputPosition(29, 18);
+				cout << "Press Enter";
+
+				guessing = 0;
+
+				char pressedKey = ' ';
+				pressedKey = _getch();
+
+				while (pressedKey != '\r')
+				{
+					pressedKey = ' ';
+					pressedKey = _getch();
+				}
+
+				system("CLS");
+				printConsoleDesign();
+
+				outputPosition(15, 13);
+				cout << "Hi " << nickname << ", Enter again!";
+
+				outputPosition(24, 14);
+				cout << number << endl;
+			}
 		}
 	}
 
 	// Success message
-	cout << "You've got it correct. Congrats!" << endl;
-	cout << "Press Enter to go back!";
+	printPopup();
+	outputPosition(13, 14);
+	cout << "You've got it correct.";
+	outputPosition(13, 15);
+	cout<<"Congrats!";
+	outputPosition(15, 18);
+	cout << "Press Enter to go back";
+
+	guessing = 0;
 
 	char pressedKey = ' ';
 	pressedKey = _getch();
