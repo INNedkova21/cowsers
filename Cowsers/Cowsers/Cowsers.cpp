@@ -491,7 +491,6 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 
 	while (exitStatement)
 	{
-		system("CLS");
 		printMenuOptions(gameDifficultyMenuOptions, selectedOption);
 		pressedKey = _getch();
 
@@ -571,6 +570,7 @@ void printRules(string menuOptions[], int selectedOption)
 	system("ClS");
 	printConsoleDesign();
 
+	// Print rules text
 	outputPosition(7, 13);
 	cout << "A computer gives a random number and if";
 	outputPosition(3, 14);
@@ -656,7 +656,6 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 
 				// Exit
 			case 3:
-				system("CLS");
 				exitStatement = false;
 				cout << "Press any key to exit";
 				break;
