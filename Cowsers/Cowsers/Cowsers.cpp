@@ -739,7 +739,7 @@ void printRules(string menuOptions[], int selectedOption)
 	printMenuOptions(menuOptions, selectedOption);
 }
 
-void settings(string nickname)
+void settings(string nickname, string menuOptions[])
 {
 	printConsoleDesign();
 
@@ -750,10 +750,88 @@ void settings(string nickname)
 
 	outputPosition(16, 15);
 	cout << "Change your nickname?";
+
+	int selectedOption = 0;
+	char pressedKey = ' ';
+	bool exitStatement = true;
+
+	for (int i = 0; i < 2; i++)
+	{
+		// Print selected option
+		if (i == selectedOption)
+		{
+			outputPosition(20, i + 16);
+			cout << "-> " << menuOptions[i];
+		}
+
+		// Print not selected option
+		else
+		{
+			outputPosition(20, i + 16);
+			cout << "   " << menuOptions[i];
+		}
+	}
+
+	while (exitStatement)
+	{
+		pressedKey = _getch();
+
+		// Moving up through the menu
+		if (selectedOption != 0 && pressedKey == (char)72)
+		{
+			selectedOption--;
+		}
+
+		// Moving down through the menu
+		if (selectedOption != 1 && pressedKey == (char)80)
+		{
+			selectedOption++;
+		}
+
+		for (int i = 0; i < 2; i++)
+		{
+			// Print selected option
+			if (i == selectedOption)
+			{
+				outputPosition(20, i + 16);
+				cout << "-> " << menuOptions[i];
+			}
+
+			// Print not selected option
+			else
+			{
+				outputPosition(20, i + 16);
+				cout << "   " << menuOptions[i];
+			}
+		}
+
+		// Choosing menu option
+		if (pressedKey == '\r')
+		{
+			switch (selectedOption)
+			{
+				// Yes
+			case 0:
+				system("CLS");
+				printPopup();
+
+				break;
+
+				// No - Go back
+			case 1:
+				system("CLS");
+				exitStatement = false;
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 }
 
 // Moving arround the menu using keyboard
-void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], string nickname)
+void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], string changeNicknameOptions[], string nickname)
 {
 
 	int selectedOption = 0;
@@ -802,7 +880,7 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], stri
 				// Settings
 			case 2:
 				system("CLS");
-				settings(nickname);
+				settings(nickname, changeNicknameOptions);
 				break;
 
 				// Exit
@@ -826,9 +904,12 @@ int main()
 	// Array of strings with all the main menu options
 	string mainMenuOptions[4] = { "Start", "Rules", "Settings", "Exit" };
 
-	// Array of strings with all the game numberOfDigits menu options
+	// Array of strings with all the difficulties menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
-	mainMenu(mainMenuOptions, gameDifficultyMenuOptions, nickname);
+	// Array of strings with all the change nickname menu options
+	string changeNicknameOptions[2] = { "Yes", "No" };
+
+	mainMenu(mainMenuOptions, gameDifficultyMenuOptions, changeNicknameOptions, nickname);
 	return 0;
 }
