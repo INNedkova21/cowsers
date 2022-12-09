@@ -85,14 +85,14 @@ void printPopup()
 	cout << char(191) << endl; // Top right corner
 
 	// Popup base
-	for (int i = 13; i < 18; i++)
+	for (int i = 13; i < 19; i++)
 	{
 		outputPosition(11, i);
 		cout << char(179) << "                              " << char(179) << endl; // Vertical lines
 	}
 
 	// Popup bottom
-	outputPosition(11, 18);
+	outputPosition(11, 19);
 	cout << char(192); // Bottom left corner
 	for (int i = 0; i < 30; i++)
 	{
@@ -412,6 +412,8 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		cout << "Please enter number between";
 		outputPosition(13, 17);
 		cout << min << " & " << max;
+		outputPosition(29, 18);
+		cout << "Press Enter";
 
 		guessing = 0;
 		cin >> guessing; // If not - input again
@@ -426,7 +428,9 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		outputPosition(13, 15);
 		cout << "equal digits";
 		outputPosition(13, 17);
-		cout << "Please enter valid number " << endl;
+		cout << "Please enter valid number ";
+		outputPosition(29, 18);
+		cout << "Press Enter";
 
 		guessing = 0;
 		cin >> guessing; // If yes - input again
@@ -494,6 +498,8 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			cout << "Please enter number between";
 			outputPosition(13, 17);
 			cout << min << " & " << max;
+			outputPosition(20, 18);
+			cout << "Press Enter";
 
 			guessing = 0;
 			cin >> guessing; // If not - input again
@@ -508,7 +514,9 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			outputPosition(13, 15);
 			cout << "equal digits";
 			outputPosition(13, 17);
-			cout << "Please enter valid number " << endl;
+			cout << "Please enter valid number ";
+			outputPosition(20, 18);
+			cout << "Press Enter";
 
 			guessing = 0;
 			cin >> guessing; // If yes - input again
@@ -630,7 +638,7 @@ void printRules(string menuOptions[], int selectedOption)
 	outputPosition(7, 13);
 	cout << "A computer gives a random number and if";
 	outputPosition(3, 14);
-	cout << "you guess a digitand its position in the number,";
+	cout << "you guess a digit and its position in the number,";
 	outputPosition(3, 15);
 	cout << "you get a BULL, or if you don't guess its place";
 	outputPosition(19, 16);
@@ -649,8 +657,6 @@ void printRules(string menuOptions[], int selectedOption)
 		pressedKey = ' ';
 		pressedKey = _getch();
 	}
-
-	selectedOption = 0;
 
 	system("CLS");
 	printMenuOptions(menuOptions, selectedOption);
