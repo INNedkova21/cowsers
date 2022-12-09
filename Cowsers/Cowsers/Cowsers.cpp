@@ -399,9 +399,9 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			printPopup();
 			outputPosition(13, 14);
 			cout << "Your number is out of range";
-			outputPosition(13, 16);
+			outputPosition(13, 15);
 			cout << "Please enter number between";
-			outputPosition(13, 17);
+			outputPosition(13, 16);
 			cout << min << " & " << max;
 			outputPosition(29, 18);
 			cout << "Press Enter";
@@ -434,7 +434,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			cout << "Your number has two or more";
 			outputPosition(13, 15);
 			cout << "equal digits";
-			outputPosition(13, 17);
+			outputPosition(13, 16);
 			cout << "Please enter valid number ";
 			outputPosition(29, 18);
 			cout << "Press Enter";
@@ -541,9 +541,9 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 				printPopup();
 				outputPosition(13, 14);
 				cout << "Your number is out of range";
-				outputPosition(13, 16);
+				outputPosition(13, 15);
 				cout << "Please enter number between";
-				outputPosition(13, 17);
+				outputPosition(13, 16);
 				cout << min << " & " << max;
 				outputPosition(29, 18);
 				cout << "Press Enter";
@@ -576,7 +576,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 				cout << "Your number has two or more";
 				outputPosition(13, 15);
 				cout << "equal digits";
-				outputPosition(13, 17);
+				outputPosition(13, 16);
 				cout << "Please enter valid number ";
 				outputPosition(29, 18);
 				cout << "Press Enter";
