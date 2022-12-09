@@ -170,6 +170,7 @@ void printConsoleDesign()
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
 	printConsoleDesign();
+
 	for (int i = 0; i < 4; i++)
 	{
 		// Print selected option
@@ -568,8 +569,20 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 void printRules(string menuOptions[], int selectedOption)
 {
 	system("ClS");
-	cout << "A computer gives a random number and if you guess a digit and its position in the number, you get a BULL, or if you don't guess its place you get a COW. That's why it's called bulls and cows. " << endl;
+	printConsoleDesign();
 
+	outputPosition(7, 13);
+	cout << "A computer gives a random number and if";
+	outputPosition(3, 14);
+	cout << "you guess a digitand its position in the number,";
+	outputPosition(3, 15);
+	cout << "you get a BULL, or if you don't guess its place";
+	outputPosition(19, 16);
+	cout << "you get a COW.";
+	outputPosition(8, 17);
+	cout << "That's why it's called bulls and cows. ";
+
+	outputPosition(25, 20);
 	cout << "Press Enter to go back!";
 
 	char pressedKey = ' ';
@@ -581,6 +594,8 @@ void printRules(string menuOptions[], int selectedOption)
 		pressedKey = _getch();
 	}
 
+	selectedOption = 0;
+
 	system("CLS");
 	printMenuOptions(menuOptions, selectedOption);
 }
@@ -589,6 +604,7 @@ void printRules(string menuOptions[], int selectedOption)
 // Moving arround the menu using keyboard
 void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 {
+
 	int selectedOption = 0;
 	char pressedKey = ' ';
 	bool exitStatement = true;
