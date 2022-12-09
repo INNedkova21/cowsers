@@ -140,6 +140,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cowsers.cpp" />
+    <ClCompile Include="Drawings.cpp" />
+    <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="Menus.cpp" />
+    <ClCompile Include="Output.cpp" />
+    <ClCompile Include="Rules.cpp" />
+    <ClCompile Include="Settings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Drawings.h" />
+    <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="Menus.h" />
+    <ClInclude Include="Output.h" />
+    <ClInclude Include="Rules.h" />
+    <ClInclude Include="Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
