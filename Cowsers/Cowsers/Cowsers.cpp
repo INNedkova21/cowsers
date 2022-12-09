@@ -553,7 +553,7 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 void printRules(string menuOptions[], int selectedOption)
 {
 	system("ClS");
-	cout << "Rules here" << endl;
+	cout << "A computer gives a random number and if you guess a digit and its position in the number, you get a BULL, or if you don't guess its place you get a COW. That's why it's called bulls and cows. " << endl;
 
 	cout << "Press Enter to go back!";
 
