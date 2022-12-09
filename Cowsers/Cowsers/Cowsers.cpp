@@ -405,6 +405,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	// Check if guessed number is in range
 	while (!(isGuessingInRange(guessing, min, max)))
 	{
+		printPopup();
 		outputPosition(13, 14);
 		cout << "Your number is out of range" << endl;
 		outputPosition(13, 15);
@@ -417,9 +418,12 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	// Check if there are equal digits in a number
 	while ((checkForEqualDigits(guessing, numberOfDigits)))
 	{
+		printPopup();
 		outputPosition(13, 14);
-		cout << "Your number has two or more equal digits" << endl;
+		cout << "Your number has two or more";
 		outputPosition(13, 15);
+		cout << "equal digits";
+		outputPosition(13, 17);
 		cout << "Please enter a valid number " << endl;
 
 		guessing = 0;
@@ -481,6 +485,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		// Check if guessed number is in range
 		while (!(isGuessingInRange(guessing, min, max)))
 		{
+			printPopup();
 			outputPosition(13, 14);
 			cout << "Your number is out of range" << endl;
 			outputPosition(13, 15);
@@ -493,10 +498,12 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		//Check if there are equal digits in a number
 		while ((checkForEqualDigits(guessing, numberOfDigits)))
 		{
-			cout <<
-				outputPosition(13, 14);
-			cout << "Your number has two or more equal digits" << endl;
+			printPopup();
+			outputPosition(13, 14);
+			cout << "Your number has two or more";
 			outputPosition(13, 15);
+			cout << "equal digits";
+			outputPosition(13, 17);
 			cout << "Please enter a valid number " << endl;
 
 			guessing = 0;
