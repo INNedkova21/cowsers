@@ -739,7 +739,7 @@ void printRules(string menuOptions[], int selectedOption)
 	printMenuOptions(menuOptions, selectedOption);
 }
 
-void settings(string nickname, string menuOptions[])
+void settings(string nickname, string menuOptions[], string mainMenuOptions[])
 {
 	printConsoleDesign();
 
@@ -760,14 +760,14 @@ void settings(string nickname, string menuOptions[])
 		// Print selected option
 		if (i == selectedOption)
 		{
-			outputPosition(20, i + 16);
+			outputPosition(22, i + 17);
 			cout << "-> " << menuOptions[i];
 		}
 
 		// Print not selected option
 		else
 		{
-			outputPosition(20, i + 16);
+			outputPosition(22, i + 17);
 			cout << "   " << menuOptions[i];
 		}
 	}
@@ -793,14 +793,14 @@ void settings(string nickname, string menuOptions[])
 			// Print selected option
 			if (i == selectedOption)
 			{
-				outputPosition(20, i + 16);
+				outputPosition(22, i + 17);
 				cout << "-> " << menuOptions[i];
 			}
 
 			// Print not selected option
 			else
 			{
-				outputPosition(20, i + 16);
+				outputPosition(22, i + 17);
 				cout << "   " << menuOptions[i];
 			}
 		}
@@ -819,7 +819,9 @@ void settings(string nickname, string menuOptions[])
 
 				// No - Go back
 			case 1:
-				system("CLS");
+				selectedOption = 2;
+
+				printMenuOptions(mainMenuOptions, selectedOption);
 				exitStatement = false;
 				break;
 
@@ -880,7 +882,7 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], stri
 				// Settings
 			case 2:
 				system("CLS");
-				settings(nickname, changeNicknameOptions);
+				settings(nickname, changeNicknameOptions, mainMenuOptions);
 				break;
 
 				// Exit
