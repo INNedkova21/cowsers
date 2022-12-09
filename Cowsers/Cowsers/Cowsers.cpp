@@ -361,11 +361,10 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 }
 
 // Game logic
-void bullsAndCows(int min, int max, int numberOfDigits)
+void bullsAndCows(int min, int max, int numberOfDigits, string nickname)
 {
 	printConsoleDesign();
 
-	string nickname = "Player";
 	int number = 0;
 	int guessing = 0;
 	int randomNumber[5] = { 0 }, guessedNumber[5] = { 0 };
@@ -609,7 +608,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	outputPosition(13, 14);
 	cout << "You've got it correct.";
 	outputPosition(13, 15);
-	cout<<"Congrats!";
+	cout << "Congrats!";
 	outputPosition(15, 18);
 	cout << "Press Enter to go back";
 
@@ -625,7 +624,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	}
 }
 
-void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptions[])
+void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptions[], string nickname)
 {
 	int selectedOption = 0;
 	char pressedKey = ' ';
@@ -658,7 +657,7 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 				// Easy mode
 			case 0:
 				system("CLS");
-				bullsAndCows(100, 999, 3);
+				bullsAndCows(100, 999, 3, nickname);
 
 				// Print main menu after game
 				system("CLS");
@@ -670,7 +669,7 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 				// Normal mode
 			case 1:
 				system("CLS");
-				bullsAndCows(1000, 9999, 4);
+				bullsAndCows(1000, 9999, 4, nickname);
 
 				// Print main menu after game
 				system("CLS");
@@ -682,7 +681,7 @@ void gameDifficultyMenu(string gameDifficultyMenuOptions[], string mainMenuOptio
 				// Hard mode
 			case 2:
 				system("CLS");
-				bullsAndCows(10000, 99999, 5);
+				bullsAndCows(10000, 99999, 5, nickname);
 
 				// Print main menu after game
 				system("CLS");
@@ -740,9 +739,21 @@ void printRules(string menuOptions[], int selectedOption)
 	printMenuOptions(menuOptions, selectedOption);
 }
 
+void settings(string nickname)
+{
+	printConsoleDesign();
+
+	outputPosition(22, 12);
+	cout << "Hi " << nickname;
+	outputPosition(17, 13);
+	cout << "Welcome to settings!";
+
+	outputPosition(16, 15);
+	cout << "Change your nickname?";
+}
 
 // Moving arround the menu using keyboard
-void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
+void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[], string nickname)
 {
 
 	int selectedOption = 0;
@@ -779,7 +790,7 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 				// Start game
 			case 0:
 				system("CLS");
-				gameDifficultyMenu(gameDifficultyMenuOptions, mainMenuOptions);
+				gameDifficultyMenu(gameDifficultyMenuOptions, mainMenuOptions, nickname);
 				break;
 
 				// Rules
@@ -791,7 +802,7 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 				// Settings
 			case 2:
 				system("CLS");
-				cout << "Third option selected";
+				settings(nickname);
 				break;
 
 				// Exit
@@ -809,12 +820,15 @@ void mainMenu(string mainMenuOptions[], string gameDifficultyMenuOptions[])
 
 int main()
 {
+	// Nickname by default
+	string nickname = "Player";
+
 	// Array of strings with all the main menu options
 	string mainMenuOptions[4] = { "Start", "Rules", "Settings", "Exit" };
 
 	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
-	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
+	mainMenu(mainMenuOptions, gameDifficultyMenuOptions, nickname);
 	return 0;
 }
