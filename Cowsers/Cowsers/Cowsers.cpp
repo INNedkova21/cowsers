@@ -169,6 +169,7 @@ void printConsoleDesign()
 // Print all menu options 
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
+	printConsoleDesign();
 	for (int i = 0; i < 4; i++)
 	{
 		// Print selected option
@@ -340,6 +341,8 @@ bool checkForEqualDigits(int num, int numberOfDigits)
 // Game logic
 void bullsAndCows(int min, int max, int numberOfDigits)
 {
+	printConsoleDesign();
+
 	int number = 0;
 	int guessing = 0;
 	int randomNumber[5] = { 0 }, guessedNumber[5] = { 0 };
@@ -355,9 +358,11 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		number = getRandomNumber(min, max); // New generation
 	}
 
+	outputPosition(24, 14);
 	cout << number << endl;
 
 	// Guessed number input
+	outputPosition(24, 15);
 	cin >> guessing;
 
 	// Check if guessed number is in range
