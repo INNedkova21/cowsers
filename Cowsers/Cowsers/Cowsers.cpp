@@ -407,9 +407,11 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 	{
 		printPopup();
 		outputPosition(13, 14);
-		cout << "Your number is out of range" << endl;
-		outputPosition(13, 15);
-		cout << "Please enter a number between " << min << " & " << max << endl;
+		cout << "Your number is out of range";
+		outputPosition(13, 16);
+		cout << "Please enter number between";
+		outputPosition(13, 17);
+		cout << min << " & " << max;
 
 		guessing = 0;
 		cin >> guessing; // If not - input again
@@ -424,7 +426,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		outputPosition(13, 15);
 		cout << "equal digits";
 		outputPosition(13, 17);
-		cout << "Please enter a valid number " << endl;
+		cout << "Please enter valid number " << endl;
 
 		guessing = 0;
 		cin >> guessing; // If yes - input again
@@ -479,7 +481,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		guessing = 0;
 
 		// Input again
-		cout << "Please enter a number again" << endl;
+		cout << "Please enter number again" << endl;
 		cin >> guessing;
 
 		// Check if guessed number is in range
@@ -487,9 +489,11 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 		{
 			printPopup();
 			outputPosition(13, 14);
-			cout << "Your number is out of range" << endl;
-			outputPosition(13, 15);
-			cout << "Please enter a number between " << min << " & " << max << endl;
+			cout << "Your number is out of range";
+			outputPosition(13, 16);
+			cout << "Please enter number between";
+			outputPosition(13, 17);
+			cout << min << " & " << max;
 
 			guessing = 0;
 			cin >> guessing; // If not - input again
@@ -504,7 +508,7 @@ void bullsAndCows(int min, int max, int numberOfDigits)
 			outputPosition(13, 15);
 			cout << "equal digits";
 			outputPosition(13, 17);
-			cout << "Please enter a valid number " << endl;
+			cout << "Please enter valid number " << endl;
 
 			guessing = 0;
 			cin >> guessing; // If yes - input again
