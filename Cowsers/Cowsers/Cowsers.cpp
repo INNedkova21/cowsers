@@ -156,6 +156,16 @@ void printGrass()
 	cout << "  ^            ^             ^^             ^ " << endl;
 }
 
+// Prints all parts of the console game design
+void printConsoleDesign()
+{
+	printGameFrame();
+	printTeamNameLogo();
+	printGrass();
+	printCow();
+	printRevertedBull();
+}
+
 // Print all menu options 
 void printMenuOptions(string arrWithOptions[], int selectedOption)
 {
@@ -645,11 +655,6 @@ int main()
 	// Array of strings with all the game numberOfDigits menu options
 	string gameDifficultyMenuOptions[4] = { "Easy", "Normal", "Hard", "Go back" };
 
-	printGameFrame();
-	printTeamNameLogo();
-	printGrass();
-	printCow();
-	printRevertedBull();
 	mainMenu(mainMenuOptions, gameDifficultyMenuOptions);
 	return 0;
 }
