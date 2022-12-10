@@ -1,18 +1,17 @@
 <div align="center"><img src="/images/logo.png" width=35%> </div>
 
----
 <h4 align="center">This is our Singleplayer version of the game "Bulls and Cows".</h4>
 
----
+<hr>
 
-## <img align="center" src="https://static.thenounproject.com/png/2940539-200.png" width="30"> About
+## <img align="center" src="https://t3.ftcdn.net/jpg/03/08/01/88/360_F_308018888_dTriP4D0eoXGFCnGEsJt2qaSA69WpAmJ.jpg" width="30"> About
  We made a program which can help you to improve your logical skills.
 
-## <img align="center" src="https://static.thenounproject.com/png/3347000-200.png" width="30"> Demo of our project
-<div align="center"><img src="/images/demo.jpg" width="1000"> </div>
-<div align="center"><img src="/images/demo.jpg" width="1000"> </div>
+## <img align="center" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fvideo-camera_4474249&psig=AOvVaw3QKweH0cWtN8X16BQJ7kWZ&ust=1670777272448000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCPDei8PA7_sCFQAAAAAdAAAAABAD" width="30"> Demo of our project
+<div align="center"><img src="/images/gameMenu.jpg" width="1000"> </div>
+<div align="center"><img src="/images/gameError.jpg" width="1000"> </div>
 
-## <img align="center" src="https://cdn-icons-png.flaticon.com/512/126/126472.png" width="30"> Installing
+## <img align="center" src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Settings-icon.png" width="30"> Installing
  To install our project on your machine you just need to clone it. This can be done by :
 
 ```
@@ -20,7 +19,7 @@
 
 ```
  You can open the project by opening the **[Cowsers.sln](https://pages.github.com/)** file
- ## <img align="center" src="https://static.thenounproject.com/png/2183932-200.png" width="30">   Team members
+ ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/2493/2493283.png" width="30">   Team members
 1. Iva Nedkova - ***Scrum trainer***
    > Email: ***INNedkova21@codingburgas.bg*** 
  
@@ -33,7 +32,7 @@
 4. Svetoslav Zhelev - ***Back-end Developer***
    > Email: ***SNZhelev21@codingburgas.bg***
 
-## <img align="center" src="https://cdn-icons-png.flaticon.com/128/1087/1087927.png" width="30"> Used technologies:
+## <img align="center" src="https://icon-library.com/images/it-icon-png/it-icon-png-6.jpg" width="30"> Used technologies:
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/2060px-Visual_Studio_Icon_2019.svg.png" width="20">  Visual studio
 - <img src="https://play-lh.googleusercontent.com/6pTX4OILXTxazqad66oiVfG4x2KpYn4kIPgdzOe173tT0oHr2ThwpBhMyzzzxWq_r6M" width="20">  Power point
 - <img src="https://play-lh.googleusercontent.com/9kABykeGovHPy-dN19lRxxnCp8IZK3Pkl8qLFNxrEe-hhKVZeiyhTBEIRUt6t-vhxQ" width="20">  Word
