@@ -4,12 +4,11 @@
 
 <hr>
 
-## <img align="center" src="https://t3.ftcdn.net/jpg/03/08/01/88/360_F_308018888_dTriP4D0eoXGFCnGEsJt2qaSA69WpAmJ.jpg" width="30"> About
+## <img align="center" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-help-about-icon.png" width="30"> About
  We made a program which can help you to improve your logical skills.
 
-## <img align="center" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fvideo-camera_4474249&psig=AOvVaw3QKweH0cWtN8X16BQJ7kWZ&ust=1670777272448000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCPDei8PA7_sCFQAAAAAdAAAAABAD" width="30"> Demo of our project
-<div align="center"><img src="/images/gameMenu.jpg" width="1000"> </div>
-<div align="center"><img src="/images/gameError.jpg" width="1000"> </div>
+## <img align="center" src="https://cdn-icons-png.flaticon.com/512/3708/3708519.png" width="30"> Demo of our project
+<p float="left" align="center"> <img src="/images/gameMenu.png" width="450">  <img src="/images/gameError.png" width="450"> </p>
 
 ## <img align="center" src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Settings-icon.png" width="30"> Installing
  To install our project on your machine you just need to clone it. This can be done by :
