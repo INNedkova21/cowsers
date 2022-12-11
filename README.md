@@ -1,35 +1,46 @@
 <div align="center"><img src="/images/logo.png" width=35%> </div>
 
+
+
 <h4 align="center">This is our Singleplayer version of the game "Bulls and Cows".</h4>
 
-<hr>
+
 
 ## <img align="center" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-help-about-icon.png" width="30"> About
- We made a program which can help you to improve your logical skills.
+We made a program which can help you to improve your logical skills.
+
+
 
 ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/3708/3708519.png" width="30"> Demo of our project
 <p float="left" align="center"> <img src="/images/gameMenu.png" width="350">  <img src="/images/gameError.png" width="350"> </p>
 
+
+
 ## <img align="center" src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Settings-icon.png" width="30"> Installing
- To install our project on your machine you just need to clone it. This can be done by :
+To install our project on your machine you just need to clone it. This can be done by :
+
+
 
 ```
    git clone https://github.com/INNedkova21/cowsers.git
-
 ```
- You can open the project by opening the **[Cowsers.sln](https://pages.github.com/)** file
- ## <img align="center" src="https://cdn-icons-png.flaticon.com/512/2493/2493283.png" width="30">   Team members
+You can open the project by opening the **[Cowsers.sln](Cowsers.sln)** file
+## <img align="center" src="https://cdn-icons-png.flaticon.com/512/2493/2493283.png" width="30">   Team members
 1. Iva Nedkova - ***Scrum trainer***
-   > Email: ***INNedkova21@codingburgas.bg*** 
- 
+   > Email: ***INNedkova21@codingburgas.bg***
+
 2. Polina Dineva - ***QA Engineer***
-   > Email: ***PSDineva21@codingburgas.bg*** 
+   > Email: ***PSDineva21@codingburgas.bg***
    
 3. Yana Ilcheva - ***Back-end Developer***
    > Email: ***YZIlcheva21@codingburgas.bg***
 
+
+
 4. Svetoslav Zhelev - ***Back-end Developer***
    > Email: ***SNZhelev21@codingburgas.bg***
+
+
 
 ## <img align="center" src="https://icon-library.com/images/it-icon-png/it-icon-png-6.jpg" width="30"> Used technologies:
 - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/2060px-Visual_Studio_Icon_2019.svg.png" width="20">  Visual studio
